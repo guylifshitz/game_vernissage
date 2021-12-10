@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/food.gd" type="Script" id=1]
 [ext_resource path="res://images/circle_gradient.png" type="Texture" id=2]
 [ext_resource path="res://images/food_plate.webp" type="Texture" id=3]
+[ext_resource path="res://prefabs/food_area.gd" type="Script" id=4]
 
 [sub_resource type="CircleShape2D" id=18]
 radius = 85.0
@@ -34,10 +35,8 @@ __meta__ = {
 
 [node name="food_area" type="Area2D" parent="."]
 position = Vector2( -7, 0 )
+script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="food_area"]
 position = Vector2( 1, 2 )
 shape = SubResource( 18 )
-
-[connection signal="body_entered" from="food_area" to="." method="_on_food_area_body_entered"]
-[connection signal="body_exited" from="food_area" to="." method="_on_food_area_body_exited"]

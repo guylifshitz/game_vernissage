@@ -7,7 +7,7 @@ var food_speed = 5
 var food_quantity
 
 
-func _ready():
+func _init():
 	food_quantity = 10
 
 func _process(delta):
@@ -25,7 +25,8 @@ func _process(delta):
 
 	$txt_food_score.text = String(int(food_quantity))
 
-func _on_food_area_body_entered(body):
+func on_food_area_body_entered(body):
+	print("on_food_area_body_entered")
 	if(body.name == "character"):
 		character_eating = true
 	if(body.get_parent().name == "npcs"):
